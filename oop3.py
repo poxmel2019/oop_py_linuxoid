@@ -6,6 +6,8 @@ def f():
             self.team = team
         def go_behind_heroe(self,heroe):
             print('Go to heroe %s '% heroe)
+        def info(self):
+            print('It\'s number {0} It\'s team {1}'.format(self.num,self.team))
     class Heroe(Soldier):
         level = 0
         def asc_level(self):
@@ -13,6 +15,10 @@ def f():
 
     heroe1 = Heroe(1,'red')
     heroe2 = Heroe(2,'blue')
+
+    heroe1.info()
+    heroe2.info()
+
 
     teams = [heroe1.team,heroe2.team]
 
@@ -23,16 +29,16 @@ def f():
     red_team = []
     blue_team = []
 
-    print(heroe1.num,heroe1.team)
-    print(heroe2.num,heroe2.team)
+    #print(heroe1.num,heroe1.team)
+    #print(heroe2.num,heroe2.team)
 
-    print(teams)
+    #print(teams)
 
     i = 3
     while True:
         num = randrange(2)
         color = teams[num]
-        soldier = Soldier(i,teams[num])
+        soldier = Soldier(i,color)
         if color == 'red':
             red_team.append(soldier)
         else:
@@ -40,8 +46,13 @@ def f():
         i += 1
         if i == 7: break
 
-    print(len(red_team))
-    print(len(blue_team))
+    for x in red_team:
+        x.info()
+
+    for y in blue_team:
+        y.info()
+
+
 
     if heroe1.team == 'red':
         if len(red_team) > len(blue_team):
